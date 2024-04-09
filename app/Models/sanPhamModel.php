@@ -101,50 +101,22 @@ class sanPhamModel extends BaseModel
     }
     static function sanPhamSearchAll($Search,$vtriBD){
         $model = new static;
-        if (isset($Search)) {
-            if ($Search!="") {
         $model->sql="SELECT * FROM `sanpham` WHERE sanpham.name LIKE '%$Search%' AND sanpham.trangthai=1 Limit $vtriBD,20";
-            }
-        }
-        if (!isset($Search) || $Search=="") {
-            $model->sql="SELECT * FROM `sanpham` WHERE sanpham.trangthai=1 Limit $vtriBD,20";
-        }
         return DB::getDataN($model->sql,true);;
     }
-
     static function sanPhamSearchAllCount($Search){
         $model = new static;
-        if (isset($Search)) {
-            if ($Search!="") {
         $model->sql="SELECT * FROM `sanpham` WHERE sanpham.name LIKE '%$Search%' AND sanpham.trangthai=1";
-            }
-        }
-        if (!isset($Search) || $Search=="") {
-            $model->sql="SELECT * FROM `sanpham` WHERE sanpham.trangthai=1";
-        }
         return DB::getDataN($model->sql,true);;
     }
-
-
-
     static function sanPhamSearchDM($Search,$iddm,$vtriBD){
         $model = new static;
-        if (isset($Search)||$Search!="") {
-                $model->sql="SELECT * FROM `sanpham` WHERE iddm=$iddm AND sanpham.name LIKE '%$Search%' AND sanpham.trangthai=1 Limit $vtriBD,20";
-        }else{
-            $model->sql="SELECT * FROM `sanpham` WHERE iddm=$iddm AND sanpham.trangthai=1 Limit $vtriBD,20";
-        }
+        $model->sql="SELECT * FROM `sanpham` WHERE sanpham.iddm=$iddm and sanpham.name LIKE '%$Search%' AND sanpham.trangthai=1 Limit $vtriBD,20";
         return DB::getDataN($model->sql,true);;
     }
-
     static function sanPhamSearchDMCount($Search,$iddm){
         $model = new static;
-        if (isset($Search)) {
-            if ($Search!="") {
-                $model->sql="SELECT * FROM `sanpham` WHERE iddm=$iddm AND sanpham.name LIKE '%$Search%' AND sanpham.trangthai=1";
-            }
-        }else{
-            $model->sql="SELECT * FROM `sanpham` WHERE iddm=$iddm AND sanpham.trangthai=1";
-        }
+        $model->sql="SELECT * FROM `sanpham` WHERE sanpham.iddm=$iddm and sanpham.name LIKE '%$Search%' AND sanpham.trangthai=1";
         return DB::getDataN($model->sql,true);;
-    }}
+    }
+}

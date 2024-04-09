@@ -194,6 +194,7 @@
                         @if (isset($tuKhoa))
                             @if ($tuKhoa != '')
                                 <h5 style="color: red; margin-left:30px ;">Từ khóa tìm kiếm : {{ $tuKhoa }}</h5>
+                               
                             @endif
                         @endif
                         <div class="swiper-wrapper_list">

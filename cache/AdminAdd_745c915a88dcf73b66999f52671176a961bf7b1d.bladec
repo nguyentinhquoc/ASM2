@@ -535,13 +535,13 @@
  <div class="collapse" id="sidebarTaskssp">
  <ul class="nav-second-level">
  <li>
- <a href="http://localhost/ASM2/User-MAU/">Tất cả sản phẩm</a>
+ <a href="http://localhost/ASM2/User-MAU/admin">Tất cả sản phẩm</a>
  </li>
  <li>
- <a href="http://localhost/ASM2/User-MAU/">Sản phẩm hiển thị</a>
+ <a href="http://localhost/ASM2/User-MAU/admin">Sản phẩm hiển thị</a>
  </li>
  <li>
- <a href="http://localhost/ASM2/User-MAU/">Sản phẩm ẩn</a>
+ <a href="http://localhost/ASM2/User-MAU/admin">Sản phẩm ẩn</a>
  </li>
  </ul>
  </div>

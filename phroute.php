@@ -36,6 +36,7 @@ $router->group(
         $router->post('/add', [App\Controllers\AdminControllers\AddController::class, 'addSanPhamPost']);
         $router->get('/edit/{id}', [App\Controllers\AdminControllers\EditController::class, 'editSanPhamGet']);
         $router->post('/edit/{id}', [App\Controllers\AdminControllers\EditController::class, 'editSanPhamPost']);
+        $router->get('/detail/{id}', [App\Controllers\AdminControllers\DetailController::class, 'detailSanPham']);
         $router->get('/delete/{id}', [App\Controllers\AdminControllers\ListController::class, 'deleteSanPham']);
         // $router->get('/Nike', [App\Controllers\UserControllers\ListController::class, 'listNike']);
         // $router->get('/Jordan', [App\Controllers\UserControllers\ListController::class, 'listJordan']);

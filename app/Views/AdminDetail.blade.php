@@ -221,13 +221,16 @@
                     <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light"
                         data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                         aria-expanded="false">
-
                         <img src="http://localhost/ASM2/User-MAU/assets/images/avarta_user/{{ $taikhoan_id->img }}"
                             alt="user-image" class="rounded-circle">
                         <span class="pro-user-name ms-1">
-                            {{ $taikhoan_id->name }} <i class="mdi mdi-chevron-down"></i>
+                            {{ $taikhoan_id->name }}
+                            <i class="mdi mdi-chevron-down"></i>
                         </span>
                     </a>
+
+
+
                     <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
                         <!-- item-->
                         <div class="dropdown-header noti-title">
@@ -245,7 +248,10 @@
                             <i class="fe-lock"></i>
                             <span>Lock Screen</span>
                         </a>
+
                         <div class="dropdown-divider"></div>
+
+                        <!-- item-->
                         <a href="http://localhost/ASM2/User-MAU/dangxuat" class="dropdown-item notify-item">
                             <i class="fe-log-out"></i>
                             <span>Logout</span>
@@ -285,7 +291,6 @@
                     </span>
                 </a>
             </div>
-
             <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
                 <li>
                     <button class="button-menu-mobile disable-btn waves-effect">
@@ -296,11 +301,183 @@
                     <h4 class="page-title-main">Dashboard</h4>
                 </li>
             </ul>
-
             <div class="clearfix"></div>
-
         </div>
         <!-- end Topbar -->
+        <main>
+            <div class="content-page">
+                <div class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div id="snow-editor" style="height: auto;">
+                                            <p><br></p>
+                                            <h3>Chi tiết sản phẩm. </h3>
+                                            <p><br></p>
+                                            <h5>Ảnh sản phẩm</h5>
+                                            <div style="width: 100%; margin: 0 auto;text-align: center;">
+                                                <img style="width: 300px;"
+                                                    src="{{ BASE_URL . 'assets/images/sanpham/' . $valueSp->img }}">
+                                            </div>
+                                            <form action="" method="POST" enctype="multipart/form-data">
+                                                <label>Chọn danh mục</label>
+                                                <select class="form-select form-select-sm" name="danhmuc"
+                                                    aria-label="Small select example" disabled>
+                                                    @foreach ($danhmuc as $key => $value)
+                                                        <option {{ $valueSp->iddm == $value->id ? 'selected' : '' }}
+                                                            value="{{ $value->id }}">{{ $value->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                <p><br></p>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1"
+                                                        class="form-label"></label>Tên sản phẩm</label>
+                                                    <input disabled
+                                                        @if (!isset($valueInput['name'])) value="{{ $valueSp->name }}" @endif
+                                                        @if (isset($valueInput['name'])) value="{{ $valueInput['name'] }}" @endif
+                                                        @if (isset($ERROR['name'])) style="border: 1px solid red" @endif
+                                                        type="text" class="form-control"
+                                                        id="exampleFormControlInput1" placeholder="Nhập tên sản phẩm."
+                                                        disabled name="name">
+                                                    @if (isset($ERROR['name']))
+                                                        <p style="color: red">
+                                                            {{ '*' . $ERROR['name'] }}
+                                                        </p>
+                                                    @endif
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlTextarea1" class="form-label">Mô
+                                                        tả</label>
+                                                    <textarea disabled @if (isset($ERROR['moTa'])) style="border: 1px solid red" @endif class="form-control"
+                                                        id="exampleFormControlTextarea1" rows="3" name="mota">  
+                                                        @if (!isset($valueInput['mota']))
+{{ $valueSp->mota }}
+@endif
+                                                        @if (isset($valueInput['mota']))
+{{ $valueInput['mota'] }}
+@endif
+</textarea>
+                                                    @if (isset($ERROR['moTa']))
+                                                        <p style="color: red">
+                                                            {{ '*' . $ERROR['moTa'] }}
+                                                        </p>
+                                                    @endif
+                                                </div>
+
+                                                <div style="display: flex;">
+                                                    <div style="width: 100%; margin-right: 50px; ">
+                                                        <label for="formFile" class="form-label">Giá tiền</label>
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text">VND</span>
+                                                            <input disabled
+                                                                @if (!isset($valueInput['price'])) value="{{ $valueSp->price }}" @endif
+                                                                @if (isset($valueInput['price'])) value="{{ $valueInput['price'] }}" @endif
+                                                                @if (isset($ERROR['price'])) style="border: 1px solid red" @endif
+                                                                type="number" class="form-control"
+                                                                id="exampleFormControlInput1"
+                                                                placeholder="Nhập tên sản phẩm." name="price">
+                                                        </div>
+                                                        @if (isset($ERROR['price']))
+                                                            <p style="color: red">
+                                                                {{ '*' . $ERROR['price'] }}
+                                                            </p>
+                                                        @endif
+                                                    </div>
+                                                    <div> <label for="formFile" class="form-label">SALE</label>
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text">%</span>
+                                                            <input disabled
+                                                                @if (!isset($valueInput['sale'])) value="{{ $valueSp->sale }}" @endif
+                                                                @if (isset($valueInput['sale'])) value="{{ $valueInput['sale'] }}" @endif
+                                                                @if (isset($ERROR['sale'])) style="border: 1px solid red" @endif
+                                                                type="number" class="form-control"
+                                                                id="exampleFormControlInput1"
+                                                                placeholder="Nhập tên sản phẩm." name="sale">
+                                                        </div>
+                                                        @if (isset($ERROR['sale']))
+                                                            <p style="color: red">
+                                                                {{ '*' . $ERROR['sale'] }}
+                                                            </p>
+                                                        @endif
+                                                    </div>
+                                                </div>
+
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            @foreach ($loadColor as $value)
+                                                                <th scope="col">{{ $value->color }}</th>
+                                                            @endforeach
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+                                                        @foreach ($loadSize as $value1)
+                                                            <tr>
+                                                                <th scope="col">{{ $value1->size }} </th>
+                                                                @foreach ($loadColor as $value2)
+                                                                    @foreach ($bienThe as $value3)
+                                                                        @if ($value2->id == $value3->idcolor && $value1->id == $value3->idsize)
+                                                                            <td>
+                                                                                <input disabled
+                                                                                    style="border: 0px; height: 30px; width: 100%;"
+                                                                                    value="{{ $value3->soluong }}"
+                                                                                    type="number" min="0"
+                                                                                    name="{{ $value2->id . '_' . $value1->id }}">
+                                                                            </td>
+                                                                        @endif
+                                                                    @endforeach
+                                                                @endforeach
+                                                            </tr>
+                                                        @endforeach
+
+                                                    </tbody>
+                                                </table>
+                                                <div class="mb-3" style="text-align: center; margin-top:50px;">
+                                                    <a href="http://localhost/ASM2/User-MAU/admin/edit/{{ $valueSp->id }}"
+                                                        style="color: white; background: rgb(65, 153, 225); border-radius: 3px; padding: 5px;padding: 20px 200px;">Sửa</a>
+                                                    <a href="http://localhost/ASM2/User-MAU/admin/delete/{{ $valueSp->id }}"
+                                                        style="color: white; background: rgb(240, 64, 64); border-radius: 3px; padding: 5px;padding: 20px 200px;"
+                                                        onclick="return confirm('Bạn chắc muốn xóa chứ ?')">Xóa</a>
+                                                </div>
+                                            </form>
+
+                                            <p><br></p>
+                                            <p>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <script>
+                    function displayImage() {
+                        var input = document.getElementById('fileInput');
+                        var img = document.getElementById('selectedImage');
+
+                        var file = input.files[0];
+
+                        if (file) {
+                            var reader = new FileReader();
+
+                            reader.onload = function(e) {
+                                img.src = e.target.result;
+                            };
+
+                            reader.readAsDataURL(file);
+                        }
+                    }
+                </script>
+        </main>
 
         <!-- ========== Left Sidebar Start ========== -->
         <div class="left-side-menu">
@@ -330,7 +507,10 @@
                             </a>
 
                             <!-- item-->
-
+                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <i class="fe-lock me-1"></i>
+                                <span>Lock Screen</span>
+                            </a>
 
                             <!-- item-->
                             <a href="http://localhost/ASM2/User-MAU/dangxuat" class="dropdown-item notify-item">
@@ -349,7 +529,6 @@
                                 <i class="mdi mdi-cog"></i>
                             </a>
                         </li>
-
                         <li class="list-inline-item">
                             <a href="#">
                                 <i class="mdi mdi-power"></i>
@@ -357,30 +536,31 @@
                         </li>
                     </ul>
                 </div>
-
-                <!--- Sidemenu -->
                 <div id="sidebar-menu">
+                    <ul id="side-menu">
+                        <li class="menu-title mt-2">Chi tiết</li>
+                        <li>
+                            <a href="#sidebarTaskssp" data-bs-toggle="collapse">
+                                <i class="fa fa-list" aria-hidden="true"></i>
+                                <span> Quản lí sản phẩm </span>
+                            </a>
+                            <div class="collapse" id="sidebarTaskssp">
+                                <ul class="nav-second-level">
+                                    <li>
+                                        <a href="http://localhost/ASM2/User-MAU/admin">Tất cả sản phẩm</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost/ASM2/User-MAU/admin">Sản phẩm hiển thị</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost/ASM2/User-MAU/admin">Sản phẩm ẩn</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
 
-                    <li class="menu-title mt-2">Chi tiết</li>
-                    <li>
-                        <a href="#sidebarTaskssp" data-bs-toggle="collapse">
-                            <i class="fa fa-list" aria-hidden="true"></i>
-                            <span> Quản lí sản phẩm </span>
-                        </a>
-                        <div class="collapse" id="sidebarTaskssp">
-                            <ul class="nav-second-level">
-                                <li>
-                                    <a href="http://localhost/ASM2/User-MAU/admin">Tất cả sản phẩm</a>
-                                </li>
-                                <li>
-                                    <a href="http://localhost/ASM2/User-MAU/admin/1">Sản phẩm hiển thị</a>
-                                </li>
-                                <li>
-                                    <a href="http://localhost/ASM2/User-MAU/admin/0">Sản phẩm ẩn</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                    </ul>
+
                 </div>
                 <!-- End Sidebar -->
 
@@ -396,225 +576,32 @@
         <!-- Start Page Content here -->
         <!-- ============================================================== -->
 
-        <div class="content-page">
-            <div class="content">
-
-                <!-- Start Content-->
-                <div class="container-fluid">
-                    <div class="row">
-
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="dropdown float-end">
-                                        <a href="#" class="dropdown-toggle arrow-none card-drop"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="mdi mdi-dots-vertical"></i>
-                                        </a>
-
-                                    </div>
-                                    <h4 class="header-title mt-0 mb-4">Nike</h4>
-                                    <div class="widget-chart-1">
-                                        <div class="widget-chart-box-1 float-start" dir="ltr">
-                                            <input data-plugin="knob" data-width="70" data-height="70"
-                                                data-fgColor="#ff6600 " data-bgColor="#ffc299"
-                                                value="{{ ($danhMuc['Nike']->soluong / ($danhMuc['Jordan']->soluong + $danhMuc['Nike']->soluong + $danhMuc['Mlb']->soluong)) * 100 }}"
-                                                data-skin="tron" data-angleOffset="180" data-readOnly=true
-                                                data-thickness=".15" />
-                                        </div>
-
-                                        <div class="widget-detail-1 text-end">
-                                            <p class="text-muted mb-1">Số lượng tồn kho</p>
-                                            <h2 class="fw-normal pt-2 mb-1"> {{ $danhMuc['Nike']->soluong }} </h2>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- end col -->
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="dropdown float-end">
-                                        <a href="#" class="dropdown-toggle arrow-none card-drop"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="mdi mdi-dots-vertical"></i>
-                                        </a>
-
-                                    </div>
-                                    <h4 class="header-title mt-0 mb-4">Jordan</h4>
-                                    <div class="widget-chart-1">
-                                        <div class="widget-chart-box-1 float-start" dir="ltr">
-                                            <input data-plugin="knob" data-width="70" data-height="70"
-                                                data-fgColor="#bf4080" data-bgColor="	 #e6b3cc"
-                                                value="{{ ($danhMuc['Jordan']->soluong / ($danhMuc['Jordan']->soluong + $danhMuc['Nike']->soluong + $danhMuc['Mlb']->soluong)) * 100 }}"
-                                                data-skin="tron" data-angleOffset="180" data-readOnly=true
-                                                data-thickness=".15" />
-                                        </div>
-
-                                        <div class="widget-detail-1 text-end">
-                                            <p class="text-muted mb-1">Số lượng tồn kho</p>
-                                            <h2 class="fw-normal pt-2 mb-1"> {{ $danhMuc['Jordan']->soluong }} </h2>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- end col -->
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="dropdown float-end">
-                                        <a href="#" class="dropdown-toggle arrow-none card-drop"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="mdi mdi-dots-vertical"></i>
-                                        </a>
-
-                                    </div>
-                                    <h4 class="header-title mt-0 mb-4">MLB</h4>
-                                    <div class="widget-chart-1">
-                                        <div class="widget-chart-box-1 float-start" dir="ltr">
-                                            <input data-plugin="knob" data-width="70" data-height="70"
-                                                data-fgColor="#f05050 " data-bgColor="#F9B9B9"
-                                                value="{{ ($danhMuc['Mlb']->soluong / ($danhMuc['Jordan']->soluong + $danhMuc['Nike']->soluong + $danhMuc['Mlb']->soluong)) * 100 }}"
-                                                data-skin="tron" data-angleOffset="180" data-readOnly=true
-                                                data-thickness=".15" />
-                                        </div>
-
-                                        <div class="widget-detail-1 text-end">
-                                            <p class="text-muted mb-1">Số lượng tồn kho</p>
-                                            <h2 class="fw-normal pt-2 mb-1"> {{ $danhMuc['Mlb']->soluong }} </h2>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- end col -->
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="dropdown float-end">
-                                        <a href="#" class="dropdown-toggle arrow-none card-drop"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="mdi mdi-dots-vertical"></i>
-                                        </a>
-                                    </div>
-                                    <h4 class="header-title mt-0 mb-4">Tổng</h4>
-                                    <div class="widget-chart-1">
-                                        <div class="widget-chart-box-1 float-start" dir="ltr">
-                                            <input data-plugin="knob" data-width="70" data-height="70"
-                                                data-fgColor=" #00ff00 " data-bgColor=" #00ff00"
-                                                value="{{ (($danhMuc['Jordan']->soluong + $danhMuc['Nike']->soluong + $danhMuc['Mlb']->soluong) / ($danhMuc['Jordan']->soluong + $danhMuc['Nike']->soluong + $danhMuc['Mlb']->soluong)) * 100 }}"
-                                                data-skin="tron" data-angleOffset="180" data-readOnly=true
-                                                data-thickness=".15" />
-                                        </div>
-
-                                        <div class="widget-detail-1 text-end">
-                                            <p class="text-muted mb-1">Số lượng tồn kho</p>
-                                            <h2 class="fw-normal pt-2 mb-1">
-                                                {{ $danhMuc['Jordan']->soluong + $danhMuc['Nike']->soluong + $danhMuc['Mlb']->soluong }}
-                                            </h2>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- end col -->
+        <!-- Footer Start -->
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script> &copy; Adminto theme by <a href="#">Coderthemes</a>
                     </div>
-                    <!-- end row -->
-                </div>
-                <!-- end row -->
-                <div class="col-xl-8" style="width: 100%">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="dropdown float-end">
-                                <a href="#" class="dropdown-toggle arrow-none card-drop"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="mdi mdi-dots-vertical"></i>
-                                </a>
-
-                            </div>
-                            <h4 class="header-title mt-0 mb-3">Danh sách sản phẩm</h4><br>
-                            <button onclick="window.location.href='http://localhost/ASM2/User-MAU/admin/add'"
-                                class="btn-primary">Thêm sản phẩm</button>
-                            <div class="table-responsive">
-                                <table class="table table-hover" style="width: 100%">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Ảnh</th>
-                                            <th>Tên</th>
-                                            <th>Giá</th>
-                                            <th>Số Lượng</th>
-                                            <th>Mã sản phẩm</th>
-                                            <th>Chức năng</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($Listsp as $key => $value)
-                                            <tr>
-                                                <th>{{ $key + 1 }}</th>
-                                                <th> <img
-                                                        src="{{ BASE_URL . 'assets/images/sanpham/' . $value->img }}"
-                                                        width="100px" height="100px">
-                                                </th>
-                                                <th>{{ $value->name }}</th>
-                                                <th>{{ number_format($value->price, 0, ',', '.') }}đ</th>
-                                                <th>{{ $value->soluong }}</th>
-                                                <th>#{{ $value->masp }}</th>
-                                                <th><a href="http://localhost/ASM2/User-MAU/admin/detail/{{ $value->id }}"
-                                                        style="color: white; background: blue; border-radius: 3px; padding: 5px">Chi tiết</a>
-                                                    <a href="http://localhost/ASM2/User-MAU/admin/delete/{{ $value->id }}"
-                                                        style="color: white; background: red; border-radius: 3px; padding: 5px"
-                                                        onclick="return confirm('Bạn chắc muốn xóa chứ ?')">Xóa</a>
-                                                        <a href="http://localhost/ASM2/User-MAU/admin/setupSp/{{ $value->id }}"
-                                                            style="color: white; background: rgb(39, 234, 14); border-radius: 3px; padding: 5px"
-                                                            onclick="return confirm('Bạn chắc chứ ?')">
-                                                             @if ($value->trangthai==0)
-                                                                Hiển Thị
-                                                            @endif @if ($value->trangthai==1)
-                                                            Ẩn
-                                                        @endif
-                                                    </a>
-
-                                                </th>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
+                    <div class="col-md-6">
+                        <div class="text-md-end footer-links d-none d-sm-block">
+                            <a href="javascript:void(0);">About Us</a>
+                            <a href="javascript:void(0);">Help</a>
+                            <a href="javascript:void(0);">Contact Us</a>
                         </div>
                     </div>
-
-                </div><!-- end col -->
-
-            </div>
-            <!-- end row -->
-
-        </div> <!-- container-fluid -->
-
-    </div> <!-- content -->
-
-    <!-- Footer Start -->
-    <footer class="footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script> &copy; Adminto theme by <a href="#">Coderthemes</a>
-                </div>
-                <div class="col-md-6">
-                    <div class="text-md-end footer-links d-none d-sm-block">
-                        <a href="javascript:void(0);">About Us</a>
-                        <a href="javascript:void(0);">Help</a>
-                        <a href="javascript:void(0);">Contact Us</a>
-                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
-    <!-- end Footer -->
+        </footer>
+        <!-- end Footer -->
+
     </div>
     <!-- ============================================================== -->
     <!-- End Page content -->
     <!-- ============================================================== -->
+
 
     </div>
     <!-- END wrapper -->

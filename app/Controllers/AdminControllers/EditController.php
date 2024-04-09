@@ -21,22 +21,18 @@ class EditController extends BaseController
         $loadSize = SizeModel::Select();
         $valueSp = sanPhamModel::SelectOne($id);
         $bienThe = BienTheModel::SelectWhereT('idsp', '=', $id);
-
         if (isset($_SESSION['admin']) && $_SESSION['admin'] != "") {
             $id = $_SESSION['admin'];
             $taikhoan_id = TaiKhoanModel::SelectWheref('id', '=', $id);
-            $this->BladeOne("AdminEdit", compact('danhmuc', 'loadColor', 'loadSize', 'valueSp', 'bienThe','taikhoan_id'));
-
+            $this->BladeOne("AdminEdit", compact('danhmuc', 'loadColor', 'loadSize', 'valueSp', 'bienThe', 'taikhoan_id'));
         } else {
             $this->BladeOne("AdminEdit", compact('danhmuc', 'loadColor', 'loadSize', 'valueSp', 'bienThe'));
-
         }
-
     }
     function editSanPhamPost($id)
     {
 
-        if ($_POST['name'] == "" || $_POST['mota'] == "" || $_POST['price'] == "" || $_POST['sale'] == "" ) {
+        if ($_POST['name'] == "" || $_POST['mota'] == "" || $_POST['price'] == "" || $_POST['sale'] == "") {
             $valueInput['name'] = $_POST['name'];
             $valueInput['mota'] = $_POST['mota'];
             $valueInput['price'] = $_POST['price'];
@@ -61,7 +57,7 @@ class EditController extends BaseController
             $loadSize = SizeModel::Select();
             $valueSp = sanPhamModel::SelectOne($id);
             $bienThe = BienTheModel::SelectWhereT('idsp', '=', $id);
-            $this->BladeOne("AdminEdit", compact('danhmuc', 'loadColor', 'loadSize', 'valueSp', 'bienThe', 'ERROR','valueInput'));
+            $this->BladeOne("AdminEdit", compact('danhmuc', 'loadColor', 'loadSize', 'valueSp', 'bienThe', 'ERROR', 'valueInput'));
         } else {
             $img = "";
             $iddm = $_POST['danhmuc'];

@@ -590,22 +590,6 @@
         <!-- Start Page Content here -->
         <!-- ============================================================== -->
 
-        <div class="content-page">
-            <div class="content">
-
-                <!-- Start Content-->
-                <form action="" method="post">
-
-                </form>
-                <!-- end row -->
-
-            </div>
-            <!-- end row -->
-
-        </div> <!-- container-fluid -->
-
-    </div> <!-- content -->
-
     <!-- Footer Start -->
     <footer class="footer">
         <div class="container-fluid">

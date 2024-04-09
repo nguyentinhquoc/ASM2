@@ -6,7 +6,6 @@ use App\Controllers\BaseController;
 use App\Models\BienTheModel;
 use App\Models\sanPhamModel;
 use App\Models\TaiKhoanModel;
-
 session_start();
 class ListController extends BaseController
 {

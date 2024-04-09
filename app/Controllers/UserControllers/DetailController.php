@@ -1,6 +1,5 @@
 <?php
 namespace App\Controllers\UserControllers;
-
 use App\Controllers\BaseController;
 use App\Models\ColorModel;
 use App\Models\dahmucModel;
