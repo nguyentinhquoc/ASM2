@@ -11,6 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="http://localhost/ASM2/User-MAU/assetsadmin/images/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- App css -->
 
@@ -573,6 +574,20 @@
                             </div>
                         </li>
 
+                        <li class="menu-title mt-2">Tài khoản</li>
+                        <li>
+                            <a href="http://localhost/ASM2/User-MAU/admin/TaiKhoan">
+                                <span> Quản lí tài khoản </span>
+                            </a>
+                        </li>
+                        <li class="menu-title mt-2">Liên hệ</li>
+                        <li>
+                            <a href="http://localhost/ASM2/User-MAU/admin/LienHe">
+                                <i class="fa fa-list" aria-hidden="true"></i>
+                                <span> Tổng hợp liên hệ</span>
+                            </a>
+                        </li>
+
                     </ul>
 
                 </div>
@@ -590,26 +605,26 @@
         <!-- Start Page Content here -->
         <!-- ============================================================== -->
 
-    <!-- Footer Start -->
-    <footer class="footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script> &copy; Adminto theme by <a href="#">Coderthemes</a>
-                </div>
-                <div class="col-md-6">
-                    <div class="text-md-end footer-links d-none d-sm-block">
-                        <a href="javascript:void(0);">About Us</a>
-                        <a href="javascript:void(0);">Help</a>
-                        <a href="javascript:void(0);">Contact Us</a>
+        <!-- Footer Start -->
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script> &copy; Adminto theme by <a href="#">Coderthemes</a>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-md-end footer-links d-none d-sm-block">
+                            <a href="javascript:void(0);">About Us</a>
+                            <a href="javascript:void(0);">Help</a>
+                            <a href="javascript:void(0);">Contact Us</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
-    <!-- end Footer -->
+        </footer>
+        <!-- end Footer -->
 
     </div>
     <!-- ============================================================== -->
@@ -797,6 +812,26 @@
 
     <!-- App js-->
     <script src="http://localhost/ASM2/User-MAU/assetsadmin/js/app.min.js"></script>
+    @if (isset($check) && $check['edit'] == false)
+        <script>
+            Swal.fire({
+                title: "Sửa thất bại",
+                text: "Vui lòng kiểm tra lại các trường !",
+                icon: "error",
+            });
+        </script>
+    @endif
+    @if (isset($check) && $check['edit'] == true)
+        <script>
+            Swal.fire({
+                title: "Sửa thành công",
+                icon: "success",
+                willClose: () => {
+                    window.location.href = "http://localhost/ASM2/User-MAU/admin/detail/{{ $valueSp->id }}";
+                }
+            });
+        </script>
+    @endif
 
 </body>
 

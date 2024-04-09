@@ -9,12 +9,14 @@ $router = new RouteCollector();
 
 
 
-$router->get('/dangxuat', [App\Controllers\LoginController ::class,'LogOut']);
-$router->get('/dangnhap', [App\Controllers\LoginController ::class,'Login']);
-$router->post('/dangnhap', [App\Controllers\LoginController ::class,'LoginPost']);
-$router->get('/dangky', [App\Controllers\RegisterController ::class,'Register']);
-$router->post('/dangky', [App\Controllers\RegisterController ::class,'RegisterPost']);
-$router->get('/', [App\Controllers\UserControllers\HomeController ::class,'loadHome']);
+$router->get('/Lienhe', [App\Controllers\UserControllers\LienheController::class, 'LienHeGet']);
+$router->post('/Lienhe', [App\Controllers\UserControllers\LienheController::class, 'LienHePost']);
+$router->get('/dangxuat', [App\Controllers\LoginController::class, 'LogOut']);
+$router->get('/dangnhap', [App\Controllers\LoginController::class, 'Login']);
+$router->post('/dangnhap', [App\Controllers\LoginController::class, 'LoginPost']);
+$router->get('/dangky', [App\Controllers\RegisterController::class, 'Register']);
+$router->post('/dangky', [App\Controllers\RegisterController::class, 'RegisterPost']);
+$router->get('/', [App\Controllers\UserControllers\HomeController::class, 'loadHome']);
 $router->group(
     ['prefix' => 'SanPham'],
     function ($router) {
@@ -38,6 +40,17 @@ $router->group(
         $router->post('/edit/{id}', [App\Controllers\AdminControllers\EditController::class, 'editSanPhamPost']);
         $router->get('/detail/{id}', [App\Controllers\AdminControllers\DetailController::class, 'detailSanPham']);
         $router->get('/delete/{id}', [App\Controllers\AdminControllers\ListController::class, 'deleteSanPham']);
+
+
+        $router->get('/LienHe', [App\Controllers\AdminControllers\LienHeController::class, 'LienHe']);
+        $router->get('/delete/LienHe/{id}', [App\Controllers\AdminControllers\LienHeController::class, 'deleteLienHe']);
+
+
+        $router->get('/edit/TaiKhoan/{id}', [App\Controllers\AdminControllers\TaiKhoanController::class, 'TaiKhoanEdit']);
+        $router->get('/delete/TaiKhoan/{id}', [App\Controllers\AdminControllers\TaiKhoanController::class, 'TaiKhoanDelete']);
+        $router->get('/TaiKhoan', [App\Controllers\AdminControllers\TaiKhoanController::class, 'TaiKhoan']);
+
+
         // $router->get('/Nike', [App\Controllers\UserControllers\ListController::class, 'listNike']);
         // $router->get('/Jordan', [App\Controllers\UserControllers\ListController::class, 'listJordan']);
         // $router->get('/MLB', [App\Controllers\UserControllers\ListController::class, 'listMlb']);
@@ -55,6 +68,3 @@ $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $url);
 
 // Print out the value returned from the dispatched function
 echo $response;
-
-
-?>

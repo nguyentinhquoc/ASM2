@@ -405,240 +405,77 @@
  <!-- Sidebar -left -->
 
  </div>
- <!-- Left Sidebar End -->
+ </div>
+</body>
 
- <!-- ============================================================== -->
- <!-- Start Page Content here -->
- <!-- ============================================================== -->
-
+<main>
  <div class="content-page">
  <div class="content">
-
- <!-- Start Content-->
  <div class="container-fluid">
+
  <div class="row">
-
- <div class="col-xl-3 col-md-6">
+ <div class="col-12">
  <div class="card">
  <div class="card-body">
- <div class="dropdown float-end">
- <a href="#" class="dropdown-toggle arrow-none card-drop"
- data-bs-toggle="dropdown" aria-expanded="false">
- <i class="mdi mdi-dots-vertical"></i>
- </a>
-
+ <h4 class="mt-0 header-title">Quản lý liên hệ</h4>
+ <p class="text-muted font-14 mb-3">
+ Dưới đây là bảng quản lí tất cả các thắc mắc của khách hàng
+ <br>
  </div>
- <h4 class="header-title mt-0 mb-4">Nike</h4>
- <div class="widget-chart-1">
- <div class="widget-chart-box-1 float-start" dir="ltr">
- <input data-plugin="knob" data-width="70" data-height="70"
- data-fgColor="#ff6600 " data-bgColor="#ffc299"
- value="<?php echo \htmlentities(($danhMuc['Nike']->soluong / ($danhMuc['Jordan']->soluong + $danhMuc['Nike']->soluong + $danhMuc['Mlb']->soluong)) * 100??'', ENT_QUOTES, 'UTF-8', false); ?>"
- data-skin="tron" data-angleOffset="180" data-readOnly=true
- data-thickness=".15" />
- </div>
-
- <div class="widget-detail-1 text-end">
- <p class="text-muted mb-1">Số lượng tồn kho</p>
- <h2 class="fw-normal pt-2 mb-1"> <?php echo \htmlentities($danhMuc['Nike']->soluong??'', ENT_QUOTES, 'UTF-8', false); ?> </h2>
- </div>
- </div>
- </div>
- </div>
- </div><!-- end col -->
- <div class="col-xl-3 col-md-6">
- <div class="card">
- <div class="card-body">
- <div class="dropdown float-end">
- <a href="#" class="dropdown-toggle arrow-none card-drop"
- data-bs-toggle="dropdown" aria-expanded="false">
- <i class="mdi mdi-dots-vertical"></i>
- </a>
-
- </div>
- <h4 class="header-title mt-0 mb-4">Jordan</h4>
- <div class="widget-chart-1">
- <div class="widget-chart-box-1 float-start" dir="ltr">
- <input data-plugin="knob" data-width="70" data-height="70"
- data-fgColor="#bf4080" data-bgColor="	 #e6b3cc"
- value="<?php echo \htmlentities(($danhMuc['Jordan']->soluong / ($danhMuc['Jordan']->soluong + $danhMuc['Nike']->soluong + $danhMuc['Mlb']->soluong)) * 100??'', ENT_QUOTES, 'UTF-8', false); ?>"
- data-skin="tron" data-angleOffset="180" data-readOnly=true
- data-thickness=".15" />
- </div>
-
- <div class="widget-detail-1 text-end">
- <p class="text-muted mb-1">Số lượng tồn kho</p>
- <h2 class="fw-normal pt-2 mb-1"> <?php echo \htmlentities($danhMuc['Jordan']->soluong??'', ENT_QUOTES, 'UTF-8', false); ?> </h2>
- </div>
- </div>
- </div>
- </div>
- </div><!-- end col -->
- <div class="col-xl-3 col-md-6">
- <div class="card">
- <div class="card-body">
- <div class="dropdown float-end">
- <a href="#" class="dropdown-toggle arrow-none card-drop"
- data-bs-toggle="dropdown" aria-expanded="false">
- <i class="mdi mdi-dots-vertical"></i>
- </a>
-
- </div>
- <h4 class="header-title mt-0 mb-4">MLB</h4>
- <div class="widget-chart-1">
- <div class="widget-chart-box-1 float-start" dir="ltr">
- <input data-plugin="knob" data-width="70" data-height="70"
- data-fgColor="#f05050 " data-bgColor="#F9B9B9"
- value="<?php echo \htmlentities(($danhMuc['Mlb']->soluong / ($danhMuc['Jordan']->soluong + $danhMuc['Nike']->soluong + $danhMuc['Mlb']->soluong)) * 100??'', ENT_QUOTES, 'UTF-8', false); ?>"
- data-skin="tron" data-angleOffset="180" data-readOnly=true
- data-thickness=".15" />
- </div>
-
- <div class="widget-detail-1 text-end">
- <p class="text-muted mb-1">Số lượng tồn kho</p>
- <h2 class="fw-normal pt-2 mb-1"> <?php echo \htmlentities($danhMuc['Mlb']->soluong??'', ENT_QUOTES, 'UTF-8', false); ?> </h2>
- </div>
- </div>
- </div>
- </div>
- </div><!-- end col -->
- <div class="col-xl-3 col-md-6">
- <div class="card">
- <div class="card-body">
- <div class="dropdown float-end">
- <a href="#" class="dropdown-toggle arrow-none card-drop"
- data-bs-toggle="dropdown" aria-expanded="false">
- <i class="mdi mdi-dots-vertical"></i>
- </a>
- </div>
- <h4 class="header-title mt-0 mb-4">Tổng</h4>
- <div class="widget-chart-1">
- <div class="widget-chart-box-1 float-start" dir="ltr">
- <input data-plugin="knob" data-width="70" data-height="70"
- data-fgColor=" #00ff00 " data-bgColor=" #00ff00"
- value="<?php echo \htmlentities((($danhMuc['Jordan']->soluong + $danhMuc['Nike']->soluong + $danhMuc['Mlb']->soluong) / ($danhMuc['Jordan']->soluong + $danhMuc['Nike']->soluong + $danhMuc['Mlb']->soluong)) * 100??'', ENT_QUOTES, 'UTF-8', false); ?>"
- data-skin="tron" data-angleOffset="180" data-readOnly=true
- data-thickness=".15" />
- </div>
-
- <div class="widget-detail-1 text-end">
- <p class="text-muted mb-1">Số lượng tồn kho</p>
- <h2 class="fw-normal pt-2 mb-1">
- <?php echo \htmlentities($danhMuc['Jordan']->soluong + $danhMuc['Nike']->soluong + $danhMuc['Mlb']->soluong??'', ENT_QUOTES, 'UTF-8', false); ?>
-
- </h2>
- </div>
- </div>
- </div>
- </div>
- </div><!-- end col -->
- </div>
- <!-- end row -->
- </div>
- <!-- end row -->
- <div class="col-xl-8" style="width: 100%">
- <div class="card">
- <div class="card-body">
- <div class="dropdown float-end">
- <a href="#" class="dropdown-toggle arrow-none card-drop"
- data-bs-toggle="dropdown" aria-expanded="false">
- <i class="mdi mdi-dots-vertical"></i>
- </a>
-
- </div>
- <h4 class="header-title mt-0 mb-3">Danh sách sản phẩm</h4><br>
- <button onclick="window.location.href='http://localhost/ASM2/User-MAU/admin/add'"
- class="btn-primary">Thêm sản phẩm</button>
- <div class="table-responsive">
- <table class="table table-hover" style="width: 100%">
+ </p>
+ <table class="table">
  <thead>
  <tr>
- <th>#</th>
- <th>Ảnh</th>
- <th>Tên</th>
- <th>Giá</th>
- <th>Số Lượng</th>
- <th>Mã sản phẩm</th>
- <th>Chức năng</th>
+ <th scope="col">#</th>
+ <th scope="col">Họ tên khách hàng</th>
+ <th scope="col">Email</th>
+ <th scope="col">Số điện thoại</th>
+ <th scope="col">Nội dung</th>
+ <th scope="col">Chức năng</th>
  </tr>
  </thead>
  <tbody>
- <?php $__currentLoopData = $Listsp; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ <?php $__currentLoopData = $lienHe; $this->addLoop($__currentLoopData);$this->getFirstLoop();
  foreach($__currentLoopData as $key => $value): $loop = $this->incrementLoopIndices();  ?>
  <tr>
- <th><?php echo \htmlentities($key + 1??'', ENT_QUOTES, 'UTF-8', false); ?></th>
- <th> <img
- src="<?php echo \htmlentities(BASE_URL . 'assets/images/sanpham/' . $value->img??'', ENT_QUOTES, 'UTF-8', false); ?>"
- width="100px" height="100px">
- </th>
- <th><?php echo \htmlentities($value->name??'', ENT_QUOTES, 'UTF-8', false); ?></th>
- <th><?php echo \htmlentities(number_format($value->price, 0, ',', '.')??'', ENT_QUOTES, 'UTF-8', false); ?>đ</th>
- <th><?php echo \htmlentities($value->soluong??'', ENT_QUOTES, 'UTF-8', false); ?></th>
- <th>#<?php echo \htmlentities($value->masp??'', ENT_QUOTES, 'UTF-8', false); ?></th>
- <th><a href="http://localhost/ASM2/User-MAU/admin/detail/<?php echo \htmlentities($value->id??'', ENT_QUOTES, 'UTF-8', false); ?>"
- style="color: white; background: blue; border-radius: 3px; padding: 5px">Chi
- tiết</a>
- <a href="http://localhost/ASM2/User-MAU/admin/delete/<?php echo \htmlentities($value->id??'', ENT_QUOTES, 'UTF-8', false); ?>"
- style="color: white; background: red; border-radius: 3px; padding: 5px"
- onclick="return confirm('Bạn chắc muốn xóa chứ ?')">Xóa</a>
- <a href="http://localhost/ASM2/User-MAU/admin/setupSp/<?php echo \htmlentities($value->id??'', ENT_QUOTES, 'UTF-8', false); ?>"
- style="color: white; background: rgb(39, 234, 14); border-radius: 3px; padding: 5px"
- onclick="return confirm('Bạn chắc chứ ?')">
- <?php if($value->trangthai == 0): ?>
- Hiển Thị
- <?php endif; ?><?php if($value->trangthai == 1): ?>
- Ẩn
- <?php endif; ?>
- </a>
-
- </th>
+ <th scope="row"><?php echo \htmlentities($key + 1??'', ENT_QUOTES, 'UTF-8', false); ?> </th>
+ <td><?php echo \htmlentities($value->fullname??'', ENT_QUOTES, 'UTF-8', false); ?> </td>
+ <td><?php echo \htmlentities($value->email??'', ENT_QUOTES, 'UTF-8', false); ?> </td>
+ <td><?php echo \htmlentities($value->tel??'', ENT_QUOTES, 'UTF-8', false); ?> </td>
+ <td><?php echo \htmlentities($value->noidung??'', ENT_QUOTES, 'UTF-8', false); ?> </td>
+ <td><a onclick="return confirm('Bạn chắc muốn xóa chứ ?')"
+ style="color: white; background: red; border-radius: 3px; padding: 8px"
+ href="http://localhost/ASM2/User-MAU/admin/delete/LienHe/<?php echo \htmlentities($value->id??'', ENT_QUOTES, 'UTF-8', false); ?>">Xóa</a>
+ </td>
  </tr>
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
  </tbody>
+
  </table>
- </div>
+
  </div>
  </div>
 
- </div><!-- end col -->
+ </div>
+ </div>
 
  </div>
- <!-- end row -->
-
- </div> <!-- container-fluid -->
-
- </div> <!-- content -->
-
- <!-- Footer Start -->
- <footer class="footer">
- <div class="container-fluid">
- <div class="row">
- <div class="col-md-6">
- <script>
- document.write(new Date().getFullYear())
- </script> &copy; Adminto theme by <a href="#">Coderthemes</a>
- </div>
- <div class="col-md-6">
- <div class="text-md-end footer-links d-none d-sm-block">
- <a href="javascript:void(0);">About Us</a>
- <a href="javascript:void(0);">Help</a>
- <a href="javascript:void(0);">Contact Us</a>
- </div>
- </div>
- </div>
- </div>
- </footer>
- <!-- end Footer -->
- </div>
- <!-- ============================================================== -->
- <!-- End Page content -->
- <!-- ============================================================== -->
 
  </div>
- <!-- END wrapper -->
+</main>
 
- <!-- Right Sidebar -->
- <div class="right-bar">
+</footer>
+<!-- end Footer -->
+</div>
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->
+
+</div>
+<!-- END wrapper -->
+
+<!-- Right Sidebar -->
+<div class="right-bar">
 
  <div data-simplebar class="h-100">
 
@@ -695,8 +532,8 @@
  </div>
 
  <div class="form-check form-switch mb-1">
- <input type="checkbox" class="form-check-input" name="leftbar-position"
- value="scrollable" id="scrollable-check" />
+ <input type="checkbox" class="form-check-input" name="leftbar-position" value="scrollable"
+ id="scrollable-check" />
  <label class="form-check-label" for="scrollable-check">Scrollable</label>
  </div>
 
@@ -777,8 +614,8 @@
 
  <div class="d-grid mt-4">
  <button class="btn btn-primary" id="resetBtn">Reset to Default</button>
- <a href="https://1.envato.market/admintoadmin" class="btn btn-danger mt-3"
- target="_blank"><i class="mdi mdi-basket me-1"></i> Purchase Now</a>
+ <a href="https://1.envato.market/admintoadmin" class="btn btn-danger mt-3" target="_blank"><i
+ class="mdi mdi-basket me-1"></i> Purchase Now</a>
  </div>
 
  </div>
@@ -787,56 +624,44 @@
  </div>
 
  </div> <!-- end slimscroll-menu-->
- </div>
- <!-- /Right-bar -->
+</div>
+<!-- /Right-bar -->
 
- <!-- Right bar overlay-->
- <div class="rightbar-overlay"></div>
-
- <!-- Vendor -->
- <script src="http://localhost/ASM2/User-MAU/assetsadmin/libs/jquery/jquery.min.js"></script>
- <script src="http://localhost/ASM2/User-MAU/assetsadmin/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
- <script src="http://localhost/ASM2/User-MAU/assetsadmin/libs/simplebar/simplebar.min.js"></script>
- <script src="http://localhost/ASM2/User-MAU/assetsadmin/libs/node-waves/waves.min.js"></script>
- <script src="http://localhost/ASM2/User-MAU/assetsadmin/libs/waypoints/lib/jquery.waypoints.min.js"></script>
- <script src="http://localhost/ASM2/User-MAU/assetsadmin/libs/jquery.counterup/jquery.counterup.min.js"></script>
- <script src="http://localhost/ASM2/User-MAU/assetsadmin/libs/feather-icons/feather.min.js"></script>
-
- <!-- knob plugin -->
- <script src="http://localhost/ASM2/User-MAU/assetsadmin/libs/jquery-knob/jquery.knob.min.js"></script>
-
- <!--Morris Chart-->
- <script src="http://localhost/ASM2/User-MAU/assetsadmin/libs/morris.js06/morris.min.js"></script>
- <script src="http://localhost/ASM2/User-MAU/assetsadmin/libs/raphael/raphael.min.js"></script>
-
- <!-- Dashboar init js-->
- <script src="http://localhost/ASM2/User-MAU/assetsadmin/js/pages/dashboard.init.js"></script>
-
- <!-- App js-->
- <script src="http://localhost/ASM2/User-MAU/assetsadmin/js/app.min.js"></script>
- <?php if(isset($check) && $check['delete'] == true): ?>
+<!-- Right bar overlay-->
+<div class="rightbar-overlay"></div>
+<?php if(isset($check) && $check['delete'] == true): ?>
  <script>
  Swal.fire({
- title: "Xóa thành công",
+ title: "Xóa liên hệ thành công",
  icon: "success",
  willClose: () => {
- window.location.href = "http://localhost/ASM2/User-MAU/admin";
+ window.location.href = "http://localhost/ASM2/User-MAU/admin/LienHe";
  }
  });
  </script>
 <?php endif; ?>
 
-<?php if(isset($check) && $check['set'] == true): ?>
-<script>
- Swal.fire({
- title: "Thay đổi thông tin thành công",
- icon: "success",
- willClose: () => {
- window.location.href = "http://localhost/ASM2/User-MAU/admin";
- }
- });
-</script>
-<?php endif; ?>
+<!-- Vendor -->
+<script src="http://localhost/ASM2/User-MAU/assetsadmin/libs/jquery/jquery.min.js"></script>
+<script src="http://localhost/ASM2/User-MAU/assetsadmin/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="http://localhost/ASM2/User-MAU/assetsadmin/libs/simplebar/simplebar.min.js"></script>
+<script src="http://localhost/ASM2/User-MAU/assetsadmin/libs/node-waves/waves.min.js"></script>
+<script src="http://localhost/ASM2/User-MAU/assetsadmin/libs/waypoints/lib/jquery.waypoints.min.js"></script>
+<script src="http://localhost/ASM2/User-MAU/assetsadmin/libs/jquery.counterup/jquery.counterup.min.js"></script>
+<script src="http://localhost/ASM2/User-MAU/assetsadmin/libs/feather-icons/feather.min.js"></script>
+
+<!-- knob plugin -->
+<script src="http://localhost/ASM2/User-MAU/assetsadmin/libs/jquery-knob/jquery.knob.min.js"></script>
+
+<!--Morris Chart-->
+<script src="http://localhost/ASM2/User-MAU/assetsadmin/libs/morris.js06/morris.min.js"></script>
+<script src="http://localhost/ASM2/User-MAU/assetsadmin/libs/raphael/raphael.min.js"></script>
+
+<!-- Dashboar init js-->
+<script src="http://localhost/ASM2/User-MAU/assetsadmin/js/pages/dashboard.init.js"></script>
+
+<!-- App js-->
+<script src="http://localhost/ASM2/User-MAU/assetsadmin/js/app.min.js"></script>
 
 </body>
 

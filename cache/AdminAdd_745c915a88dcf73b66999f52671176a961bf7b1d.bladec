@@ -11,9 +11,8 @@
  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
  <!-- App favicon -->
  <link rel="shortcut icon" href="http://localhost/ASM2/User-MAU/assetsadmin/images/favicon.ico">
-
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
  <!-- App css -->
-
  <link href="http://localhost/ASM2/User-MAU/assetsadmin/css/app.min.css" rel="stylesheet" type="text/css"
  id="app-style" />
 
@@ -546,7 +545,19 @@
  </ul>
  </div>
  </li>
-
+ <li class="menu-title mt-2">Tài khoản</li>
+ <li>
+ <a href="http://localhost/ASM2/User-MAU/admin/TaiKhoan">
+ <span> Quản lí tài khoản </span>
+ </a>
+ </li>
+ <li class="menu-title mt-2">Liên hệ</li>
+ <li>
+ <a href="http://localhost/ASM2/User-MAU/admin/LienHe">
+ <i class="fa fa-list" aria-hidden="true"></i>
+ <span> Tổng hợp liên hệ</span>
+ </a>
+ </li>
  </div>
  <!-- End Sidebar -->
 
@@ -785,7 +796,26 @@
 
  <!-- App js-->
  <script src="http://localhost/ASM2/User-MAU/assetsadmin/js/app.min.js"></script>
-
+ <?php if(isset($check) && $check['add'] == false): ?>
+ <script>
+ Swal.fire({
+ title: "Thêm thất bại",
+ text: "Vui lòng kiểm tra lại các trường !",
+ icon: "error",
+ });
+ </script>
+ <?php endif; ?>
+ <?php if(isset($check) && $check['add'] == true): ?>
+ <script>
+ Swal.fire({
+ title: "Thêm thành công",
+ icon: "success",
+ willClose: () => {
+ window.location.href = "http://localhost/ASM2/User-MAU/admin";
+ }
+ });
+ </script>
+ <?php endif; ?>
 </body>
 
 <!-- Mirrored from coderthemes.com/adminto/layouts/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Nov 2023 23:15:28 GMT -->

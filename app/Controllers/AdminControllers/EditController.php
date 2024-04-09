@@ -57,7 +57,14 @@ class EditController extends BaseController
             $loadSize = SizeModel::Select();
             $valueSp = sanPhamModel::SelectOne($id);
             $bienThe = BienTheModel::SelectWhereT('idsp', '=', $id);
-            $this->BladeOne("AdminEdit", compact('danhmuc', 'loadColor', 'loadSize', 'valueSp', 'bienThe', 'ERROR', 'valueInput'));
+            $check['edit'] = false;
+            if (isset($_SESSION['admin']) && $_SESSION['admin'] != "") {
+                $id = $_SESSION['admin'];
+                $taikhoan_id = TaiKhoanModel::SelectWheref('id', '=', $id);
+                $this->BladeOne("AdminEdit", compact('danhmuc', 'loadColor', 'loadSize', 'valueSp', 'bienThe', 'ERROR', 'valueInput', 'check'));
+            } else {
+                $this->BladeOne("AdminEdit", compact('danhmuc', 'loadColor', 'loadSize', 'valueSp', 'bienThe', 'ERROR', 'valueInput', 'check'));
+            }
         } else {
             $img = "";
             $iddm = $_POST['danhmuc'];
@@ -77,9 +84,20 @@ class EditController extends BaseController
                     $slbienthe = $_POST[$value1->id . '_' . $value2->id];
                     $mabt = $value1->id . "_" . $value2->id;
                     BienTheModel::upadteBienThe($slbienthe, $mabt, $id);
-                    header("Location: http://localhost/ASM2/User-MAU/admin/");
                 }
             }
+            $danhmuc = dahmucModel::Select();
+            $loadColor = ColorModel::Select();
+            $loadSize = SizeModel::Select();
+            $valueSp = sanPhamModel::SelectOne($id);
+            $bienThe = BienTheModel::SelectWhereT('idsp', '=', $id);
+            $check['edit'] = true;
+            $ERROR['name'] = false;
+            $valueInput['name'] = $_POST['name'];
+            $valueInput['mota'] = $_POST['mota'];
+            $valueInput['price'] = $_POST['price'];
+            $valueInput['sale'] = $_POST['sale'];
+            $this->BladeOne("AdminEdit", compact('danhmuc', 'loadColor', 'loadSize', 'valueSp', 'bienThe', 'ERROR', 'valueInput', 'check'));
         }
     }
 }

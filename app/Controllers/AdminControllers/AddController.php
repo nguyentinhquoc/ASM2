@@ -24,7 +24,7 @@ class AddController extends BaseController
         if (isset($_SESSION['admin']) && $_SESSION['admin'] != "") {
             $id = $_SESSION['admin'];
             $taikhoan_id = TaiKhoanModel::SelectWheref('id', '=', $id);
-            $this->BladeOne("AdminAdd", compact('danhmuc', 'loadColor', 'loadSize','taikhoan_id'));
+            $this->BladeOne("AdminAdd", compact('danhmuc', 'loadColor', 'loadSize', 'taikhoan_id'));
         } else {
             $this->BladeOne("AdminAdd", compact('danhmuc', 'loadColor', 'loadSize'));
         }
@@ -32,10 +32,10 @@ class AddController extends BaseController
     function addSanPhamPost()
     {
         if ($_POST['name'] == "" || $_POST['mota'] == "" || $_POST['price'] == "" || $_POST['sale'] == "" || $_FILES['img']['name'] == "" || !isset($_FILES['img']['name'])) {
-            $valueInput['name']=$_POST['name'];
-            $valueInput['mota']=$_POST['mota'];
-            $valueInput['price']=$_POST['price'];
-            $valueInput['sale']=$_POST['sale'];
+            $valueInput['name'] = $_POST['name'];
+            $valueInput['mota'] = $_POST['mota'];
+            $valueInput['price'] = $_POST['price'];
+            $valueInput['sale'] = $_POST['sale'];
             if ($_POST['name'] == "") {
                 $ERROR['name'] = "Vui lòng nhập tên sản phẩm";
             }
@@ -54,7 +54,8 @@ class AddController extends BaseController
             $danhmuc = dahmucModel::Select();
             $loadColor = ColorModel::Select();
             $loadSize = SizeModel::Select();
-            $this->BladeOne("AdminAdd", compact('danhmuc', 'loadColor', 'loadSize', 'ERROR','valueInput'));
+            $check['add'] = false;
+            $this->BladeOne("AdminAdd", compact('danhmuc', 'loadColor', 'loadSize', 'ERROR', 'valueInput', 'check'));
         } else {
             $danhmuc = $_POST['danhmuc'];
             $name = $_POST['name'];
@@ -78,7 +79,16 @@ class AddController extends BaseController
                     BienTheModel::addBienThe($idsp, $idcolor, $idsize, $slbienthe, $mabt);
                 }
             }
-            header("Location: http://localhost/ASM2/User-MAU/admin/");
+            $valueInput['name'] = $_POST['name'];
+            $valueInput['mota'] = $_POST['mota'];
+            $valueInput['price'] = $_POST['price'];
+            $valueInput['sale'] = $_POST['sale'];
+            $danhmuc = dahmucModel::Select();
+            $loadColor = ColorModel::Select();
+            $loadSize = SizeModel::Select();
+            $check['add'] = true;
+            $ERROR = "";
+            $this->BladeOne("AdminAdd", compact('danhmuc', 'loadColor', 'loadSize', 'ERROR', 'valueInput', 'check'));
         }
     }
 }

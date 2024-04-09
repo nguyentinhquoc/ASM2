@@ -27,7 +27,7 @@ class LoginController extends BaseController
                 if ($key->email == $email_dn && $key->pass == $pass_dn && $key->role == 1 && $key->trangthai == 1) {
                     $_SESSION['user']=$key->id;
                     header("Location: http://localhost/ASM2/User-MAU/");
-                } 
+                }
                 if ($key->email == $email_dn && $key->pass == $pass_dn && $key->role == 2 && $key->trangthai == 1) {
                     $_SESSION['admin']=$key->id;
                     header("Location: http://localhost/ASM2/User-MAU/admin");

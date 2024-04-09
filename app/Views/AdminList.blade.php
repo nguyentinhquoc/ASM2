@@ -12,6 +12,7 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="http://localhost/ASM2/User-MAU/assetsadmin/images/favicon.ico">
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- App css -->
 
     <link href="http://localhost/ASM2/User-MAU/assetsadmin/css/app.min.css" rel="stylesheet" type="text/css"
@@ -381,6 +382,20 @@
                             </ul>
                         </div>
                     </li>
+
+                    <li class="menu-title mt-2">Tài khoản</li>
+                    <li>
+                        <a href="http://localhost/ASM2/User-MAU/admin/TaiKhoan">
+                            <span> Quản lí tài khoản </span>
+                        </a>
+                    </li>
+                    <li class="menu-title mt-2">Liên hệ</li>
+                    <li>
+                        <a href="http://localhost/ASM2/User-MAU/admin/LienHe">
+                            <i class="fa fa-list" aria-hidden="true"></i>
+                            <span> Tổng hợp liên hệ</span>
+                        </a>
+                    </li>
                 </div>
                 <!-- End Sidebar -->
 
@@ -559,18 +574,19 @@
                                                 <th>{{ $value->soluong }}</th>
                                                 <th>#{{ $value->masp }}</th>
                                                 <th><a href="http://localhost/ASM2/User-MAU/admin/detail/{{ $value->id }}"
-                                                        style="color: white; background: blue; border-radius: 3px; padding: 5px">Chi tiết</a>
+                                                        style="color: white; background: blue; border-radius: 3px; padding: 5px">Chi
+                                                        tiết</a>
                                                     <a href="http://localhost/ASM2/User-MAU/admin/delete/{{ $value->id }}"
                                                         style="color: white; background: red; border-radius: 3px; padding: 5px"
                                                         onclick="return confirm('Bạn chắc muốn xóa chứ ?')">Xóa</a>
-                                                        <a href="http://localhost/ASM2/User-MAU/admin/setupSp/{{ $value->id }}"
-                                                            style="color: white; background: rgb(39, 234, 14); border-radius: 3px; padding: 5px"
-                                                            onclick="return confirm('Bạn chắc chứ ?')">
-                                                             @if ($value->trangthai==0)
-                                                                Hiển Thị
-                                                            @endif @if ($value->trangthai==1)
-                                                            Ẩn
-                                                        @endif
+                                                    <a href="http://localhost/ASM2/User-MAU/admin/setupSp/{{ $value->id }}"
+                                                        style="color: white; background: rgb(39, 234, 14); border-radius: 3px; padding: 5px"
+                                                        onclick="return confirm('Bạn chắc chứ ?')">
+                                                        @if ($value->trangthai == 0)
+                                                            Hiển Thị
+                                                            @endif @if ($value->trangthai == 1)
+                                                                Ẩn
+                                                            @endif
                                                     </a>
 
                                                 </th>
@@ -796,6 +812,29 @@
 
     <!-- App js-->
     <script src="http://localhost/ASM2/User-MAU/assetsadmin/js/app.min.js"></script>
+    @if (isset($check) && $check['delete'] == true)
+    <script>
+        Swal.fire({
+            title: "Xóa thành công",
+            icon: "success",
+            willClose: () => {
+                window.location.href = "http://localhost/ASM2/User-MAU/admin";
+            }
+        });
+    </script>
+@endif
+
+@if (isset($check) && $check['set'] == true)
+<script>
+    Swal.fire({
+        title: "Thay đổi thông tin thành công",
+        icon: "success",
+        willClose: () => {
+            window.location.href = "http://localhost/ASM2/User-MAU/admin";
+        }
+    });
+</script>
+@endif
 
 </body>
 

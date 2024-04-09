@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -22,11 +21,12 @@
     <link rel="stylesheet" href="{{ BASE_URL }}assets/css/plugins/nice-select.css">
     <link rel="stylesheet" href="{{ BASE_URL }}assets/css/plugins/magnific-popup.min.css" />
     <link rel="stylesheet" href="{{ BASE_URL }}assets/css/plugins/ion.rangeSlider.min.css" />
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
     <!-- Style CSS -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+
     <link rel="stylesheet" href="{{ BASE_URL }}assets/css/style.css">
 
 </head>
@@ -87,20 +87,17 @@
                                                     <i class="pe-7s-angle-down"></i>
                                                 </a>
                                                 <ul class="drop-menu">
-
                                                     @foreach ($danhmuc as $key)
                                                         <li>
                                                             <a
-                                                            href="http://localhost/ASM2/User-MAU/SanPham/listSanPham/{{ $key->id }}/Page_1">{{ $key->name }}</a>
+                                                                href="http://localhost/ASM2/User-MAU/SanPham/listSanPham/{{ $key->id }}/Page_1">{{ $key->name }}</a>
 
                                                         </li>
                                                     @endforeach
-
-
                                                 </ul>
                                             </li>
                                             <li class="drop-holder">
-                                                <a href="http://localhost/ASM2/User-MAU/?act=tintuc">Tin tức
+                                                <a href="http://localhost/ASM2/User-MAU/">Tin tức
                                                 </a>
 
                                             </li>
@@ -108,7 +105,7 @@
                                                 <a href="http://localhost/ASM2/User-MAU/Lienhe">Liên hệ</a>
                                             </li>
                                             <li>
-                                                {{-- 00000000
+                                                {{-- 0
                                                 //  if (isset($_GET['search'])) {
                                                 //     $_SESSION['search'] = $_GET['search'];
                                                 //     header('Location: http://localhost/ASM2/User-MAU/?act=sanpham_list&page=1');
@@ -120,28 +117,43 @@
                                 </div>
                                 <div class="header-right">
                                     <ul>
+                                        @if (isset($_SESSION['user']) && $_SESSION['user'] != '')
+                                            <li class="dropdown d-none d-lg-block">
+                                                <button class="btn btn-link dropdown-toggle ht-btn p-0" type="button"
+                                                    id="settingButton" data-bs-toggle="dropdown" aria-label="setting"
+                                                    aria-expanded="false">
+                                                    <img src="http://localhost/ASM2/User-MAU/assets/images/avarta_user/{{ $taikhoan_id->img }}"
+                                                        alt="" width="40px" height="40px"
+                                                        style="border-radius: 50%; width: 40px; margin: 0 auto;">
+                                                </button>
+                                                {{ $taikhoan_id->name }}
+                                                <ul class="dropdown-menu right-side" aria-labelledby="settingButton">
 
 
+                                                    ?>
+                                                    <li><a class="dropdown-item"
+                                                            href="http://localhost/ASM2/User-MAU/">Tài
+                                                            khoản của tôi</a></li>
+                                                    <li><a class="dropdown-item"
+                                                            href="http://localhost/ASM2/User-MAU/dangxuat">Đang xuất</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        @endif
+                                        @if (!isset($_SESSION['user']) || $_SESSION['user'] == '')
+                                            <li class="dropdown d-none d-lg-block">
+                                                <button class="btn btn-link dropdown-toggle ht-btn p-0" type="button"
+                                                    id="settingButton" data-bs-toggle="dropdown" aria-label="setting"
+                                                    aria-expanded="false">
+                                                    <i class="fa fa-user-o" aria-hidden="true"></i>
 
-
-                                        <li class="minicart-wrap me-3 me-lg-0">
-                                            <li><a class="dropdown-item" href="http://localhost/ASM2/User-MAU/dangky">Đang
-                                                ký</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="http://localhost/ASM2/User-MAU/dangnhap">Đang
-                                                nhập</a>
-                                        </li>
-                                        </li>
-                                        <li class="dropdown d-none d-lg-block">
-                                            <button class="btn btn-link dropdown-toggle ht-btn p-0" type="button"
-                                                id="settingButton" data-bs-toggle="dropdown" aria-label="setting"
-                                                aria-expanded="false">
-
-                                            </button>
-                                            <ul class="dropdown-menu right-side" aria-labelledby="settingButton">
-
-                                                
-                                        </li>
+                                                </button>
+                                            <li><a class="dropdown-item"
+                                                    href="http://localhost/ASM2/User-MAU/dangky">Đang ký</a></li>
+                                            <li><a class="dropdown-item"
+                                                    href="http://localhost/ASM2/User-MAU/dangnhap">Đang nhập</a></li>
+                                            </li>
+                                        @endif
                                     </ul>
                                 </div>
                             </div>
@@ -149,125 +161,55 @@
                     </div>
                 </div>
             </div>
-
-
-
-            <main class="main-content">
-                <div class="login-register-area section-space-y-axis-100">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-6 pt-10 pt-lg-0">
-                                <img src="http://localhost/ASM2/User-MAU/assets/images/login/img2.png" alt="">
-                            </div>
-
-                            <div class="col-lg-6">
-                                <form method="POST">
-                                    <div class="login-form">
-                                        <h4 class="login-title">ĐANG NHẬP
-
-
-                                        </h4>
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <label>Email</label>
-                                                <input type="email" placeholder="Email Address" name="email_dn">
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <label>Mật khẩu</label>
-                                                <input type="password" placeholder="Password" name="pass_dn">
-                                            </div>
-                                            <div class="col-md-8">
-                                                <div class="check-box">
-                                                    <a href="http://localhost/ASM2/User-MAU/?act=dangky">Đang ký</a>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 pt-1 mt-md-0">
-                                                <div class="forgotton-password_info">
-                                                    <a href="http://localhost/ASM2/User-MAU/?act=quenpass">Quên mật khẩu ?</a>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <button class="btn btn-custom-size lg-size btn-primary btn_dk"
-                                                    name="submit_dk" style="width: 100%;">ĐANG NHẬP</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-
+            <!-- ----------------------------------------------------------------------- -->
+            <!--                                 LIÊN HỆ                                 -->
+            <main>
+                <h4
+                    style='width: 100%; background-color: #fad9f6; text-align: center; padding: 20px;  font-family: "Times New Roman", Times, serif; font-weight: bolder;'>
+                    Liên hệ</h4>
+                <div style="display: flex; ">
+                    <div style="width: 30%; margin-right: 100px;">
+                        <div>
+                            <i class="fa fa-map-pin" aria-hidden="true" style="color: green; margin: 10px;"></i>
+                            FPT Polytehcnic <br>
+                            <i class="fa fa-envelope-o" aria-hidden="true" style="color: red; margin: 10px;"></i>
+                            nguyentinh140321@gmail.com <br>
+                            <i class="fa fa-phone" aria-hidden="true" style="color: green; margin: 10px;"></i>
+                            0862201004
                         </div>
+                        <form method="post">
+                            <label>Họ tên</label> <br>
+                            <input type="text" class="form-control" name="name"
+                                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                            <label>Email</label> <br>
+                            <input type="email" class="form-control" name="email"
+                                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+
+                            @if (isset($err['email']))
+                                <p style="color: red;"> {{ $err['email'] }}</p>
+                            @endif
+                            <label>Số điện thoại</label> <br>
+                            <input type="tel" class="form-control" name="tel"
+                                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+
+                            @if (isset($err['sdt']))
+                                <p style="color: red;"> {{ $err['sdt'] }}</p>
+                            @endif
+                            <label>Nội dung</label> <br>
+                            <textarea class="form-control" aria-label="With textarea" name="noidung"></textarea>
+                            <input type="submit" name="submit" value="Gửi liên hệ"
+                                style="color: white; background-color: red; margin: 20px; padding: 5px 20px;">
+                        </form>
+                    </div>
+                    <div>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119163.63738286112!2d105.59481929726563!3d21.03814036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313455e940879933%3A0xcf10b34e9f1a03df!2zVHLGsOG7nW5nIENhbyDEkeG6s25nIEZQVCBQb2x5dGVjaG5pYw!5e0!3m2!1sen!2s!4v1702197885983!5m2!1sen!2s"
+                            width="800px" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </main>
-            <!-- Main Content Area End Here -->
-
-
-
-
-
-            <!-- Begin Brand Area -->
-            <div class="brand-area section-space-y-axis-100 white-smoke-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="swiper-container brand-slider">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide img_f_home ">
-                                        <a class="brand-item-f" href="#">
-                                            <img src="{{ BASE_URL }}assets/images/brand/1-1.png"
-                                                alt="Brand Image" width="150px" height="200px"
-                                                style="border-radius: 20px;">
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide img_f_home">
-                                        <a class="brand-item-f" href="#">
-                                            <img src="{{ BASE_URL }}assets/images/brand/1-2.png"
-                                                alt="Brand Image" width="150px" height="200px"
-                                                style="border-radius: 20px;">
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide img_f_home">
-                                        <a class="brand-item-f" href="#">
-                                            <img src="{{ BASE_URL }}assets/images/brand/1-3.png"
-                                                alt="Brand Image" width="150px" height="200px"
-                                                style="border-radius: 20px;">
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide img_f_home">
-                                        <a class="brand-item-f" href="#">
-                                            <img src="{{ BASE_URL }}assets/images/brand/1-4.png"
-                                                alt="Brand Image" width="150px" height="200px"
-                                                style="border-radius: 20px;">
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide img_f_home">
-                                        <a class="brand-item-f" href="#">
-                                            <img src="{{ BASE_URL }}assets/images/brand/1-5.png"
-                                                alt="Brand Image" width="150px" height="200px"
-                                                style="border-radius: 20px;">
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide img_f_home">
-                                        <a class="brand-item-f" href="#">
-                                            <img src="{{ BASE_URL }}assets/images/brand/1-6.png"
-                                                alt="Brand Image" width="150px" height="200px"
-                                                style="border-radius: 20px;">
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide img_f_home">
-                                        <a class="brand-item-f" href="#">
-                                            <img src="{{ BASE_URL }}assets/images/brand/1-7.png"
-                                                alt="Brand Image" width="150px" height="200px"
-                                                style="border-radius: 20px;">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- ----------------------------------------------------------------------- -->
 
             <div class="footer-area">
                 <div class="footer-top section-space-y-axis-100 text-lavender"
@@ -717,15 +659,24 @@
     <script src="{{ BASE_URL }}assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-    @if (isset($check))
-        <script>
-            Swal.fire({
-                title: "Đang nhập thất bại",
-                text: "Kiểm tra lại tài khoản hoặc mật khẩu",
-                icon: "error"
-            });
-        </script>
-    @endif
+    @if ($check == true)
+    <script>
+        Swal.fire({
+            title: "Gửi liên hệ thành công",
+            text: "Cảm ơn về góp ý của bạn",
+            icon: "success"
+        });
+    </script>
+@endif
+@if ($check == false)
+    <script>
+        Swal.fire({
+            title: "Gửi liên hệ thất bại",
+            text: "Kiểm tra lại thông tin",
+            icon: "error"
+        });
+    </script>
+@endif 
 
     <script>
         var citis = document.getElementById("city");

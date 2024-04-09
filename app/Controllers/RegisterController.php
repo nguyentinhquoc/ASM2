@@ -5,16 +5,18 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\dahmucModel;
 use App\Models\TaiKhoanModel;
+
 session_start();
 
 class RegisterController extends BaseController
 {
-    function Register(){
+    function Register()
+    {
         $danhmuc = dahmucModel::Select();
-        $this->BladeOne("Register",compact('danhmuc'));
-}
-    function RegisterPost(){
-
+        $this->BladeOne("Register", compact('danhmuc'));
+    }
+    function RegisterPost()
+    {
         if (isset($_POST['submit_dk'])) {
             $pattern_tel = '/^(03[2-9]|07[0-9]|08[1-9]|09[0-9])[0-9]{7}$/';
             $pattern_email = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
@@ -48,13 +50,13 @@ class RegisterController extends BaseController
                     $err['tel'] = "* Số điện thoại không hợp lệ";
                 }
             }
-            if (!preg_match($pattern_email, $email_dk)) { 
+            if (!preg_match($pattern_email, $email_dk)) {
                 if (isset($email_dk)) {
                     $check_dk = false;
                     $err['email'] = "* Email không hợp lệ";
                 }
             }
-        
+
             if (isset($name_dk) && $name_dk == "") {
                 $err['name'] = "* Vui lòng nhập họ và tên";
                 $check_dk = false;
@@ -73,15 +75,15 @@ class RegisterController extends BaseController
                 $err['rePass'] = "* Xác nhận mật khẩu sai !!!";
                 $check_dk = false;
             }
-            if ($check_dk==false) {
+            if ($check_dk == false) {
                 $danhmuc = dahmucModel::Select();
-                $this->BladeOne("Register",compact('danhmuc','err'));
+                $check = "";
+                $this->BladeOne("Register", compact('danhmuc', 'err', 'check'));
             }
             if ($check_dk == true) {
-                TaiKhoanModel::dangky($name_dk,$pass_dk, $tel_dk,$email_dk,$address);
+                TaiKhoanModel::dangky($name_dk, $pass_dk, $tel_dk, $email_dk, $address);
                 header("Location: http://localhost/ASM2/User-MAU/dangnhap");
             }
         }
-
-}
+    }
 }

@@ -102,15 +102,9 @@
 
                                             </li>
                                             <li>
-                                                <a href="http://localhost/ASM2/User-MAU/?act=lienhe">Liên hệ</a>
+                                                <a href="http://localhost/ASM2/User-MAU/Lienhe">Liên hệ</a>
                                             </li>
                                             <li>
-                                                {{-- 00000000
-                                                //  if (isset($_GET['search'])) {
-                                                //     $_SESSION['search'] = $_GET['search'];
-                                                //     header('Location: http://localhost/ASM2/User-MAU/?act=sanpham_list&page=1');
-                                                // } 
-                                                ?> --}}
                                             </li>
                                         </ul>
                                     </nav>

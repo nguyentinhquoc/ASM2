@@ -11,6 +11,7 @@
  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
  <!-- App favicon -->
  <link rel="shortcut icon" href="http://localhost/ASM2/User-MAU/assetsadmin/images/favicon.ico">
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
  <!-- App css -->
 
@@ -571,6 +572,20 @@
  </li>
  </ul>
  </div>
+ </li>
+ 
+ <li class="menu-title mt-2">Tài khoản</li>
+ <li>
+ <a href="http://localhost/ASM2/User-MAU/admin/TaiKhoan" >
+ <span> Quản lí tài khoản </span>
+ </a>
+ </li>
+ <li class="menu-title mt-2">Liên hệ</li>
+ <li>
+ <a href="http://localhost/ASM2/User-MAU/admin/LienHe" >
+ <i class="fa fa-list" aria-hidden="true"></i>
+ <span> Tổng hợp liên hệ</span>
+ </a>
  </li>
 
  </ul>

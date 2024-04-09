@@ -99,7 +99,7 @@
 
                                             </li>
                                             <li>
-                                                <a href="http://localhost/ASM2/User-MAU/?act=lienhe">Liên hệ</a>
+                                                <a href="http://localhost/ASM2/User-MAU/Lienhe">Liên hệ</a>
                                             </li>
                                             <li>
                                                 {{-- 00000000
@@ -767,6 +767,15 @@
     <script src="{{ BASE_URL }}assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    @if (isset($check))
+    <script>
+        Swal.fire({
+            title: "Đang ký thất bại",
+            text: "Kiểm tra lại thông tin",
+            icon: "error"
+        });
+    </script>
+@endif
     <script>
         var citis = document.getElementById("city");
         var districts = document.getElementById("district");

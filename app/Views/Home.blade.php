@@ -106,7 +106,7 @@
 
                                             </li>
                                             <li>
-                                                <a href="index.php?act=lienhe">Liên hệ</a>
+                                                <a href="http://localhost/ASM2/User-MAU/Lienhe">Liên hệ</a>
                                             </li>
                                             <li>
 
