@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -141,7 +140,7 @@
  </button>
  <ul class="dropdown-menu right-side" aria-labelledby="settingButton">
 
- 
+
  </li>
  </ul>
  </div>
@@ -179,12 +178,13 @@
  </div>
  <div class="col-md-8">
  <div class="check-box">
- <a href="http://localhost/ASM2/User-MAU/?act=dangky">Đang ký</a>
+ <a href="http://localhost/ASM2/User-MAU/dangky">Đang ký</a>
  </div>
  </div>
  <div class="col-md-4 pt-1 mt-md-0">
  <div class="forgotton-password_info">
- <a href="http://localhost/ASM2/User-MAU/?act=quenpass">Quên mật khẩu ?</a>
+ <a href="http://localhost/ASM2/User-MAU/dangnhap">Quên mật
+ khẩu ?</a>
  </div>
  </div>
 

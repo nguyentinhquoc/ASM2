@@ -662,7 +662,7 @@
 
 <!-- App js-->
 <script src="http://localhost/ASM2/User-MAU/assetsadmin/js/app.min.js"></script>
-@if ($check['delete'] == true)
+@if (isset($check['delete']) && $check['delete'] == true)
     <script>
         Swal.fire({
             title: "Xóa thành công",
@@ -673,7 +673,7 @@
         });
     </script>
 @endif
-@if ($check['set'] == true)
+@if (isset($check['set']) && $check['set'] == true)
     <script>
         Swal.fire({
             title: "Khóa thành công",

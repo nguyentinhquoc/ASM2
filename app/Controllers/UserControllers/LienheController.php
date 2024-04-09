@@ -3,6 +3,7 @@
 namespace App\Controllers\UserControllers;
 
 use App\Controllers\BaseController;
+use App\Models\dahmucModel;
 use App\Models\LienheModel;
 use App\Models\TaiKhoanModel;
 
@@ -13,16 +14,20 @@ class LienheController extends BaseController
 
     function LienHeGet()
     {
+        $danhmuc = dahmucModel::Select();
+
         if (isset($_SESSION['user']) && $_SESSION['user'] != "") {
             $id = $_SESSION['user'];
             $taikhoan_id = TaiKhoanModel::SelectWheref('id', '=', $id);
-            $this->BladeOne("Lienhe", compact('taikhoan_id'));
+            $this->BladeOne("Lienhe", compact('taikhoan_id','danhmuc'));
         } else {
-            $this->BladeOne("Lienhe", []);
+            $this->BladeOne("Lienhe", compact('danhmuc'));
         }
     }
     function LienHePost()
     {
+        $danhmuc = dahmucModel::Select();
+
         $pattern_tel = '/^(03[2-9]|07[0-9]|08[1-9]|09[0-9])[0-9]{7}$/';
         $pattern_email = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
         $tel_lh = $_POST['tel'];
@@ -46,10 +51,10 @@ class LienheController extends BaseController
             if (isset($_SESSION['user']) && $_SESSION['user'] != "") {
                 $id = $_SESSION['user'];
                 $taikhoan_id = TaiKhoanModel::SelectWheref('id', '=', $id);
-                $check = false;
-                $this->BladeOne("Lienhe", compact('taikhoan_id', 'err', 'check'));
+                $check = 2;
+                $this->BladeOne("Lienhe", compact('taikhoan_id', 'err', 'check','danhmuc'));
             } else {
-                $this->BladeOne("Lienhe", compact('err', 'check'));
+                $this->BladeOne("Lienhe", compact('err', 'check','danhmuc'));
             }
         }
         if ($check_lh == true) {
@@ -61,10 +66,10 @@ class LienheController extends BaseController
             if (isset($_SESSION['user']) && $_SESSION['user'] != "") {
                 $id = $_SESSION['user'];
                 $taikhoan_id = TaiKhoanModel::SelectWheref('id', '=', $id);
-                $check = true;
-                $this->BladeOne("Lienhe", compact('taikhoan_id', 'check'));
+                $check = 1;
+                $this->BladeOne("Lienhe", compact('taikhoan_id', 'check','danhmuc'));
             } else {
-                $this->BladeOne("Lienhe", compact('check'));
+                $this->BladeOne("Lienhe", compact('check','danhmuc'));
             }
         }
     }

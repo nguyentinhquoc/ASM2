@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -91,7 +90,7 @@
                                                     @foreach ($danhmuc as $key)
                                                         <li>
                                                             <a
-                                                            href="http://localhost/ASM2/User-MAU/SanPham/listSanPham/{{ $key->id }}/Page_1">{{ $key->name }}</a>
+                                                                href="http://localhost/ASM2/User-MAU/SanPham/listSanPham/{{ $key->id }}/Page_1">{{ $key->name }}</a>
 
                                                         </li>
                                                     @endforeach
@@ -125,7 +124,7 @@
 
 
                                         <li class="minicart-wrap me-3 me-lg-0">
-                                            <li><a class="dropdown-item" href="http://localhost/ASM2/User-MAU/dangky">Đang
+                                        <li><a class="dropdown-item" href="http://localhost/ASM2/User-MAU/dangky">Đang
                                                 ký</a>
                                         </li>
                                         <li><a class="dropdown-item" href="http://localhost/ASM2/User-MAU/dangnhap">Đang
@@ -140,7 +139,7 @@
                                             </button>
                                             <ul class="dropdown-menu right-side" aria-labelledby="settingButton">
 
-                                                
+
                                         </li>
                                     </ul>
                                 </div>
@@ -178,12 +177,13 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="check-box">
-                                                    <a href="http://localhost/ASM2/User-MAU/?act=dangky">Đang ký</a>
+                                                    <a href="http://localhost/ASM2/User-MAU/dangky">Đang ký</a>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 pt-1 mt-md-0">
                                                 <div class="forgotton-password_info">
-                                                    <a href="http://localhost/ASM2/User-MAU/?act=quenpass">Quên mật khẩu ?</a>
+                                                    <a href="http://localhost/ASM2/User-MAU/dangnhap">Quên mật
+                                                        khẩu ?</a>
                                                 </div>
                                             </div>
 

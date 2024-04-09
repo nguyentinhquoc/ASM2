@@ -659,24 +659,24 @@
     <script src="{{ BASE_URL }}assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-    @if ($check == true)
-    <script>
-        Swal.fire({
-            title: "Gửi liên hệ thành công",
-            text: "Cảm ơn về góp ý của bạn",
-            icon: "success"
-        });
-    </script>
-@endif
-@if ($check == false)
-    <script>
-        Swal.fire({
-            title: "Gửi liên hệ thất bại",
-            text: "Kiểm tra lại thông tin",
-            icon: "error"
-        });
-    </script>
-@endif 
+    @if ($check == 1)
+        <script>
+            Swal.fire({
+                title: "Gửi liên hệ thành công",
+                text: "Cảm ơn về góp ý của bạn",
+                icon: "success"
+            });
+        </script>
+    @endif
+    @if ($check == 2)
+        <script>
+            Swal.fire({
+                title: "Gửi liên hệ thất bại",
+                text: "Kiểm tra lại thông tin",
+                icon: "error"
+            });
+        </script>
+    @endif
 
     <script>
         var citis = document.getElementById("city");
