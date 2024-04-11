@@ -1,0 +1,25 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('mainD'); ?>
+ <div>
+ <p>First replacement!</p>
+ <hr>
+ </div>
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection('testC'); ?>
+ <div>
+ <p>Second replacement!</p>
+ <hr>
+ </div>
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection('testD'); ?>
+ @parentXYZABC
+ <div>
+ <p>Additional content</p>
+ <hr>
+ </div>
+<?php $this->stopSection(); ?>
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('test'); } ?>

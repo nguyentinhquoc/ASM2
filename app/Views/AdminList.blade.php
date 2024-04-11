@@ -548,6 +548,14 @@
                             <h4 class="header-title mt-0 mb-3">Danh sách sản phẩm</h4><br>
                             <button onclick="window.location.href='http://localhost/ASM2/User-MAU/admin/add'"
                                 class="btn-primary">Thêm sản phẩm</button>
+                            <form action="" method="post">
+                                <div style="margin-top: 50px; display: flex" class="form-floating mb-3">
+                                    <input style="width: 70%" type="tedxt" class="form-control" id="floatingInput"
+                                        placeholder="Tìm kiếm sản phẩm" name="search">
+                                    <label for="floatingInput">Tìm kiếm</label>
+                                    <button style="width: 20% ;margin-left: 20px"  class="btn btn-outline-info">Tìm kiếm</button>
+                                </div>
+                            </form>
                             <div class="table-responsive">
                                 <table class="table table-hover" style="width: 100%">
                                     <thead>
@@ -813,28 +821,28 @@
     <!-- App js-->
     <script src="http://localhost/ASM2/User-MAU/assetsadmin/js/app.min.js"></script>
     @if (isset($check) && $check['delete'] == true)
-    <script>
-        Swal.fire({
-            title: "Xóa thành công",
-            icon: "success",
-            willClose: () => {
-                window.location.href = "http://localhost/ASM2/User-MAU/admin";
-            }
-        });
-    </script>
-@endif
+        <script>
+            Swal.fire({
+                title: "Xóa thành công",
+                icon: "success",
+                willClose: () => {
+                    window.location.href = "http://localhost/ASM2/User-MAU/admin";
+                }
+            });
+        </script>
+    @endif
 
-@if (isset($check) && $check['set'] == true)
-<script>
-    Swal.fire({
-        title: "Thay đổi thông tin thành công",
-        icon: "success",
-        willClose: () => {
-            window.location.href = "http://localhost/ASM2/User-MAU/admin";
-        }
-    });
-</script>
-@endif
+    @if (isset($check) && $check['set'] == true)
+        <script>
+            Swal.fire({
+                title: "Thay đổi thông tin thành công",
+                icon: "success",
+                willClose: () => {
+                    window.location.href = "http://localhost/ASM2/User-MAU/admin";
+                }
+            });
+        </script>
+    @endif
 
 </body>
 

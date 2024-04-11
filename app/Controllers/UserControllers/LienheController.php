@@ -12,6 +12,10 @@ session_start();
 class LienheController extends BaseController
 {
 
+    function test()
+    {
+        $this->BladeOne("testa", []);
+    }
     function LienHeGet()
     {
         $danhmuc = dahmucModel::Select();
@@ -19,7 +23,7 @@ class LienheController extends BaseController
         if (isset($_SESSION['user']) && $_SESSION['user'] != "") {
             $id = $_SESSION['user'];
             $taikhoan_id = TaiKhoanModel::SelectWheref('id', '=', $id);
-            $this->BladeOne("Lienhe", compact('taikhoan_id','danhmuc'));
+            $this->BladeOne("Lienhe", compact('taikhoan_id', 'danhmuc'));
         } else {
             $this->BladeOne("Lienhe", compact('danhmuc'));
         }
@@ -52,9 +56,9 @@ class LienheController extends BaseController
                 $id = $_SESSION['user'];
                 $taikhoan_id = TaiKhoanModel::SelectWheref('id', '=', $id);
                 $check = 2;
-                $this->BladeOne("Lienhe", compact('taikhoan_id', 'err', 'check','danhmuc'));
+                $this->BladeOne("Lienhe", compact('taikhoan_id', 'err', 'check', 'danhmuc'));
             } else {
-                $this->BladeOne("Lienhe", compact('err', 'check','danhmuc'));
+                $this->BladeOne("Lienhe", compact('err', 'check', 'danhmuc'));
             }
         }
         if ($check_lh == true) {
@@ -67,9 +71,9 @@ class LienheController extends BaseController
                 $id = $_SESSION['user'];
                 $taikhoan_id = TaiKhoanModel::SelectWheref('id', '=', $id);
                 $check = 1;
-                $this->BladeOne("Lienhe", compact('taikhoan_id', 'check','danhmuc'));
+                $this->BladeOne("Lienhe", compact('taikhoan_id', 'check', 'danhmuc'));
             } else {
-                $this->BladeOne("Lienhe", compact('check','danhmuc'));
+                $this->BladeOne("Lienhe", compact('check', 'danhmuc'));
             }
         }
     }

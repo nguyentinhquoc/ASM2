@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -171,8 +170,9 @@
                             alt=""></div>
                     <div class="box box_center">
                         <div class="name">
-                            <h3>{{ $sanphamct->name }}
 
+
+                            <h3>{{ $sanphamct->name }}
                             </h3>
 
                         </div>
@@ -207,35 +207,20 @@
                         </div>
                         <form action="http://localhost/ASM2/User-MAU/?act=sanpham_chitiet&id=000 $idsp ?>"
                             method="post">
-
-
                             <div class="mau">Màu:
-
                                 @foreach ($loadColor as $key => $value)
                                     <div class="custom-radio" id="color">
                                         <input type="radio" id="{{ $value->color }}" name="color"
                                             value="{{ $value->id }}"
-                                            onclick="chon_bt_color({{ $value->id }},000 $idsp ?>)">
-                                        <label for=""
-                                            onclick="chon_bt_color({{ $value->id }},000 $idsp ?>)">{{ $value->color }}</label>
+                                            onclick="chon_bt_color({{ $value->id }},{{ $idsp }})">
+                                        <label for="{{ $value->color }}"
+                                            onclick="chon_bt_color({{ $value->id }},{{ $idsp }})">{{ $value->color }}</label>
                                     </div>
                                 @endforeach
                             </div>
-                            <div class="mau">size:
-                                @foreach ($loadSize as $key => $value)
-                                    <div class="custom-radio" id="color">
-                                        <input type="radio" id="{{ $value->size }}" name="size"
-                                            value="{{ $value->id }}"
-                                            onclick="chon_bt_size({{ $value->id }},000 $idsp ?>)">
-                                        <label for="">{{ $value->size }}</label>
-                                    </div>
-                                @endforeach
-                            </div>
-
                             <script>
                                 function chon_bt_color(color, idsp) {
-
-                                    $.post("ajax/sanpham_ct_chon_mau.php", {
+                                    $.post("", {
                                         idsp: idsp,
                                         color: color,
                                     }, function(data) {
@@ -243,6 +228,8 @@
                                     });
                                 }
                             </script>
+                            <div class="size">
+                            </div>
                             <div class="soluongmua">
                                 <p style="margin-right: 20px;">Số lượng: </p>
 

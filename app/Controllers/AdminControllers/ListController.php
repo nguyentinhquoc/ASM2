@@ -10,9 +10,68 @@ use App\Models\TaiKhoanModel;
 session_start();
 class ListController extends BaseController
 {
+  function listAllTK()
+  {
+    $search=$_POST['search'];
+    $Listsp = sanPhamModel::sanPhamAdmin($search);
+    $danhMuc['Nike'] = sanPhamModel::coutSanPhamNike();
+    $danhMuc['Jordan'] = sanPhamModel::coutSanPhamJordan();
+    $danhMuc['Mlb'] = sanPhamModel::coutSanPhamMlb();
+
+    if (isset($_SESSION['admin']) && $_SESSION['admin'] != "") {
+      $id = $_SESSION['admin'];
+      $taikhoan_id = TaiKhoanModel::SelectWheref('id', '=', $id);
+      $this->BladeOne("AdminList", compact('Listsp', 'danhMuc', 'taikhoan_id'));
+    } else {
+      $this->BladeOne("AdminList", compact('Listsp', 'danhMuc'));
+    }
+  }
+  function list1TK()
+  {
+    $search=$_POST['search'];
+    $Listsp = sanPhamModel::sanPhamAdmin1($search);
+    $danhMuc['Nike'] = sanPhamModel::coutSanPhamNike();
+    $danhMuc['Jordan'] = sanPhamModel::coutSanPhamJordan();
+    $danhMuc['Mlb'] = sanPhamModel::coutSanPhamMlb();
+
+    if (isset($_SESSION['admin']) && $_SESSION['admin'] != "") {
+      $id = $_SESSION['admin'];
+      $taikhoan_id = TaiKhoanModel::SelectWheref('id', '=', $id);
+      $this->BladeOne("AdminList", compact('Listsp', 'danhMuc', 'taikhoan_id'));
+    } else {
+      $this->BladeOne("AdminList", compact('Listsp', 'danhMuc'));
+    }
+  }
+  function list0TK()
+  {
+    $search=$_POST['search'];
+    $Listsp = sanPhamModel::sanPhamAdmin0($search);
+    $danhMuc['Nike'] = sanPhamModel::coutSanPhamNike();
+    $danhMuc['Jordan'] = sanPhamModel::coutSanPhamJordan();
+    $danhMuc['Mlb'] = sanPhamModel::coutSanPhamMlb();
+
+    if (isset($_SESSION['admin']) && $_SESSION['admin'] != "") {
+      $id = $_SESSION['admin'];
+      $taikhoan_id = TaiKhoanModel::SelectWheref('id', '=', $id);
+      $this->BladeOne("AdminList", compact('Listsp', 'danhMuc', 'taikhoan_id'));
+    } else {
+      $this->BladeOne("AdminList", compact('Listsp', 'danhMuc'));
+    }
+  }
+
+// ------------------------------
+
+
+
+
+
+
+
+
   function listAll()
   {
-    $Listsp = sanPhamModel::sanPhamAdmin();
+    $search="";
+    $Listsp = sanPhamModel::sanPhamAdmin($search);
     $danhMuc['Nike'] = sanPhamModel::coutSanPhamNike();
     $danhMuc['Jordan'] = sanPhamModel::coutSanPhamJordan();
     $danhMuc['Mlb'] = sanPhamModel::coutSanPhamMlb();
@@ -27,7 +86,8 @@ class ListController extends BaseController
   }
   function list1()
   {
-    $Listsp = sanPhamModel::sanPhamAdmin1();
+    $search="";
+    $Listsp = sanPhamModel::sanPhamAdmin1($search);
     $danhMuc['Nike'] = sanPhamModel::coutSanPhamNike();
     $danhMuc['Jordan'] = sanPhamModel::coutSanPhamJordan();
     $danhMuc['Mlb'] = sanPhamModel::coutSanPhamMlb();
@@ -42,7 +102,8 @@ class ListController extends BaseController
   }
   function list0()
   {
-    $Listsp = sanPhamModel::sanPhamAdmin0();
+    $search="";
+    $Listsp = sanPhamModel::sanPhamAdmin0($search);
     $danhMuc['Nike'] = sanPhamModel::coutSanPhamNike();
     $danhMuc['Jordan'] = sanPhamModel::coutSanPhamJordan();
     $danhMuc['Mlb'] = sanPhamModel::coutSanPhamMlb();
@@ -56,9 +117,12 @@ class ListController extends BaseController
     }
   }
 
+
+  
   function deleteSanPham($id)
   {
-    $Listsp = sanPhamModel::sanPhamAdmin0();
+    $seacrch="";
+    $Listsp = sanPhamModel::sanPhamAdmin0($seacrch);
     $danhMuc['Nike'] = sanPhamModel::coutSanPhamNike();
     $danhMuc['Jordan'] = sanPhamModel::coutSanPhamJordan();
     $danhMuc['Mlb'] = sanPhamModel::coutSanPhamMlb();
@@ -75,7 +139,8 @@ class ListController extends BaseController
   }
   function setupSp($id)
   {
-    $Listsp = sanPhamModel::sanPhamAdmin0();
+    $seacrch="";
+    $Listsp = sanPhamModel::sanPhamAdmin0($seacrch);
     $danhMuc['Nike'] = sanPhamModel::coutSanPhamNike();
     $danhMuc['Jordan'] = sanPhamModel::coutSanPhamJordan();
     $danhMuc['Mlb'] = sanPhamModel::coutSanPhamMlb();

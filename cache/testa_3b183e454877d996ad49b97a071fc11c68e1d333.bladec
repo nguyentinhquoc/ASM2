@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta charset="utf-8">
+ <title>Test</title>
+ </head>
+ <body>
+ <h1>This is a test</h1>
+
+ <?php echo $this->yieldContent('mainA'); ?>
+ <?php echo $this->yieldContent('mainB', 'This is the alternative 1'); ?>
+ <?php echo $this->yieldContent('mainC', '<p>This is the alternative 2</p>'); ?>
+ <?php echo $this->yieldContent('mainD', 'This is the alternative 3'); ?>
+
+ <?php $this->startSection('testA'); ?>
+ <?php echo $this->yieldSection(); ?>
+
+ <?php $this->startSection('testB'); ?>
+ This is the alternative 4
+ <?php echo $this->yieldSection(); ?>
+
+ <?php $this->startSection('testC'); ?>
+ <p>This is the alternative 5</p>
+ <?php echo $this->yieldSection(); ?>
+
+ <?php $this->startSection('testD'); ?>
+ <p>This is the alternative 6</p>
+ <?php echo $this->yieldSection(); ?>
+
+
+ </body>
+</html>

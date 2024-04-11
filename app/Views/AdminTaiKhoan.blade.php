@@ -288,12 +288,12 @@
             </div>
 
             <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
-                <li>
+                <li style="list-style: none">
                     <button class="button-menu-mobile disable-btn waves-effect">
                         <i class="fe-menu"></i>
                     </button>
                 </li>
-                <li>
+                <li style="list-style: none">
                     <h4 class="page-title-main">Dashboard</h4>
                 </li>
             </ul>
@@ -363,20 +363,20 @@
                 <div id="sidebar-menu">
 
                     <li class="menu-title mt-2">Chi tiết</li>
-                    <li>
+                    <li style="list-style: none">
                         <a href="#sidebarTaskssp" data-bs-toggle="collapse">
                             <i class="fa fa-list" aria-hidden="true"></i>
                             <span> Quản lí sản phẩm </span>
                         </a>
                         <div class="collapse" id="sidebarTaskssp">
                             <ul class="nav-second-level">
-                                <li>
+                                <li style="list-style: none">
                                     <a href="http://localhost/ASM2/User-MAU/admin">Tất cả sản phẩm</a>
                                 </li>
-                                <li>
+                                <li style="list-style: none">
                                     <a href="http://localhost/ASM2/User-MAU/admin/1">Sản phẩm hiển thị</a>
                                 </li>
-                                <li>
+                                <li style="list-style: none">
                                     <a href="http://localhost/ASM2/User-MAU/admin/0">Sản phẩm ẩn</a>
                                 </li>
                             </ul>
@@ -384,13 +384,13 @@
                     </li>
 
                     <li class="menu-title mt-2">Tài khoản</li>
-                    <li>
+                    <li style="list-style: none">
                         <a href="http://localhost/ASM2/User-MAU/admin/TaiKhoan">
                             <span> Quản lí tài khoản </span>
                         </a>
                     </li>
                     <li class="menu-title mt-2">Liên hệ</li>
-                    <li>
+                    <li style="list-style: none">
                         <a href="http://localhost/ASM2/User-MAU/admin/LienHe">
                             <i class="fa fa-list" aria-hidden="true"></i>
                             <span> Tổng hợp liên hệ</span>
